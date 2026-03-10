@@ -27,7 +27,7 @@ Install and Magic:
     4. Magic
 
 Wanna tweak it?
-THRESHOLD variable (line 9) can be adjusted. Set to 10
+THRESHOLD variable (line 9) can be adjusted. Default as 10.
 
 Wanna improve it?
 Please do. I'm not that good at bash (yet)
