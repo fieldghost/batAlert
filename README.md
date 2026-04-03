@@ -1,57 +1,57 @@
 # batAlert
 
-> Flow-state in the terminal.
-> Laptop on the lap.
-> Many lines of codes.
-> Laptop dies... no power.
-> Forgot to charge...
-> AAARGH!
+Never forget to charge your laptop again. Or still forget, but at least this script tried to warn you.
 
-**batAlert** is a (very) simple bash script that you run as a cron job. Its sole purpose is to warn you about low battery on your device.
+batAlert is a lightweight bash script designed to run in the background as a cron job. It monitors your battery level and pushes a critical desktop notification when your power drops below a defined threshold while discharging.
+
+🔗 **[View on GitHub](https://github.com/fieldghost/batAlert)**
 
 ---
 
-## Requirements
+## ⚠️ Prerequisites
 
-The script requires `notify-send` to push the critical GUI warning to your beautiful eyes.
+The script relies on `notify-send` to push critical GUI warnings to your desktop environment.
 
-* **Ubuntu**
+* **Ubuntu:**
     ```bash
     sudo apt-get install notify-osd
     ```
-* **Debian**
+* **Debian:**
     ```bash
     sudo apt-get install libnotify-bin
     ```
-* **Something else?**
-    Please find it and install it via your package manager, or visit [vaskovsky.net](https://vaskovsky.net/notify-send/linux.html) for more information.
+* **Other Distributions:**
+    Install it via your standard package manager, or visit [vaskovsky.net](https://vaskovsky.net/notify-send/linux.html) for guidance.
 
 ---
 
-## Install and Magic
+## 🛠️ Installation & Setup
 
-1. Download the script.
+1. Download or clone the script to your machine.
 2. Make it executable:
    ```bash
    chmod +x batAlert.sh
    ```
-3. Update your crontab line:
-   * Open your crontab file in the terminal:
-     ```bash
-     crontab -e
-     ```
-   * Add the following line (make sure to replace the path with your actual script path):
-     ```bash
-     * * * * * /path/to/the/lovely/script/batAlert.sh >> /tmp/battery.log
-     ```
-4. Magic! 
+3. Move the script to a permanent location (e.g., `~/scripts/batAlert.sh`).
+4. Open your crontab configuration:
+   ```bash
+   crontab -e
+   ```
+5. Add the following line to run the script every minute (make sure to replace `/path/to/` with your actual directory path):
+   ```bash
+   * * * * * /path/to/batAlert.sh >> /tmp/battery.log
+   ```
 
 ---
 
-## Wanna tweak it?
+## ⚙️ Configuration
 
-The `THRESHOLD` variable (line 9) can be adjusted. It is set to `10` by default.
+By default, the script will trigger an alert when your battery hits **10%**. You can adjust this by opening `batAlert.sh` and editing the `THRESHOLD` variable on line 9:
 
-## Wanna improve it?
+```bash
+THRESHOLD="10" # Change this to your preferred percentage
+```
 
-Please do! I'm not that good at bash (yet).
+---
+
+Free to use. Open source. Lovely.
